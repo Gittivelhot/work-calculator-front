@@ -1,33 +1,30 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import * as React from 'react';
+import dayjs from 'dayjs';
+import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
+import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
+import { TimeField } from '@mui/x-date-pickers/TimeField';
 
 function App() {
-  const [count, setCount] = useState(0)
+
+  const [startTime, setStartTime] = React.useState(dayjs('2022-04-17T15:30'));
+  const [endTime, setEndTime] = React.useState(dayjs('2022-04-17T15:30'));
 
   return (
     <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 10)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      <LocalizationProvider dateAdapter={AdapterDayjs}>
+        <TimeField
+          label="Aloitusaika"
+          format="HH:mm"
+          value={startTime}
+          onChange={(newValue) => setStartTime(newValue)}
+        />
+        <TimeField
+          label="Lopetusaika"
+          format="HH:mm"
+          value={endTime}
+          onChange={(newValue) => setEndTime(newValue)}
+        />
+      </LocalizationProvider>
     </>
   )
 }
