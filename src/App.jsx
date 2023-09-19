@@ -3,6 +3,7 @@ import dayjs from 'dayjs';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { TimeField } from '@mui/x-date-pickers/TimeField';
+import Button from '@mui/material/Button';
 
 function App() {
 
@@ -25,6 +26,7 @@ function App() {
           onChange={(newValue) => setEndTime(newValue)}
         />
       </LocalizationProvider>
+      <Button variant="contained" >Lähetä</Button>
     </>
   )
 }
