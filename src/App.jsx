@@ -2,31 +2,45 @@ import * as React from 'react';
 import dayjs from 'dayjs';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
-import { TimeField } from '@mui/x-date-pickers/TimeField';
 import Button from '@mui/material/Button';
+import { DateTimePicker } from '@mui/x-date-pickers/DateTimePicker';
+import 'dayjs/locale/fi';
+
+
 
 function App() {
 
-  const [startTime, setStartTime] = React.useState(dayjs('2022-04-17T15:30'));
-  const [endTime, setEndTime] = React.useState(dayjs('2022-04-17T15:30'));
+  const locales = ['fi'];
+  const [startTime, setStartTime] = React.useState(dayjs(''));
+  const [endTime, setEndTime] = React.useState(dayjs(''));
 
   return (
     <>
-      <LocalizationProvider dateAdapter={AdapterDayjs}>
-        <TimeField
+      <LocalizationProvider dateAdapter={AdapterDayjs} adapterLocale='fi'>
+      <DateTimePicker
           label="Aloitusaika"
-          format="HH:mm"
+          viewRenderers={{
+            hours: null,
+            minutes: null,
+            seconds: null,
+          }}
           value={startTime}
           onChange={(newValue) => setStartTime(newValue)}
         />
-        <TimeField
+        <DateTimePicker
           label="Lopetusaika"
-          format="HH:mm"
+          viewRenderers={{
+            hours: null,
+            minutes: null,
+            seconds: null,
+          }}
           value={endTime}
           onChange={(newValue) => setEndTime(newValue)}
         />
       </LocalizationProvider>
-      <Button variant="contained" >Lähetä</Button>
+      <Button variant="contained" size="large" onClick={() => {
+    alert(endTime);
+  }}>Lähetä</Button>
     </>
   )
 }
