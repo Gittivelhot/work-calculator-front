@@ -35,7 +35,9 @@ Mikäli käyttäjä ei ole rekisteröitynyt voi hän laskea palkkansa tuntipalka
 
 Virhe tilanteissa tulee alert viesti. Tämä tapahtuu esimerkiksi tilanteessa jossa käyttäjä syöttää negatiivisen tuntipalkan tai kellonajan.
   
-## Kaaviot
+## Tietokanta
+
+Tietokanta on organisoitu tietojen kokoelma, joka on suunniteltu tallentamaan, hallitsemaan ja tarjoamaan tehokasta pääsyä tietoihin. Tietokanta koostuu tietorakenteista ja ohjelmistoista, jotka mahdollistavat tietojen tallentamisen, päivittämisen, hakemisen ja analysoinnin. Tietokantoja käytetään monissa sovelluksissa ja järjestelmissä erilaisten tietojen hallintaan, mukaan lukien yrityksen tietojärjestelmät, verkkosivustot, mobiilisovellukset ja paljon muuta.
 
 ### Luokkakaavio
 ![Alt Text](luokkakaavio.png)
