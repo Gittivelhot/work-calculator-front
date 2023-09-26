@@ -1,21 +1,39 @@
 # Tuntilaskuri
 
-Tässä projektissa on tarkoituksena luoda sovellus, jolla pystyy laskemaan tehtyjä työtunteja, laskemaan palkkaa sekä tarkastelemaan syötettyjä tietoja niin päivä-, viikko- kuin kuukausitasolla.
+## Projektin alustava kuvaus
+
+Projektin tarkoituksena on luoda sovellus, jolla pystyy laskemaan tehtyjä työtunteja, laskemaan palkkaa sekä tarkastelemaan syötettyjä tietoja niin päivä-, viikko- kuin kuukausitasolla.
+
+Sovelluksessa käyttäjä voi syöttää töiden aloitus- ja lopetusajankohdan sekä laskea tehdyt työtunnit. Työtuntien lisäksi käyttäjä voi laskea suuntaa antavan palkan. Mikäli käyttäjä on rekisteröitynyt sovellukseen pystyy hän tarkastella omia työtunti- ja palkkatietojaan.
 
 Tärkeinä ominaisuuksina ovat: työajan, tuntipalkan ja veroprosentin syöttäminen. Kirjautuneena käyttäjänä voi tarkastella omia syötettyjä tietoja.
 
-### Toteutusteknologiat
+## Toteutusteknologiat
+
 Front-end:
-- React 
+- React js
 
 Back-end:
-- Spring Boot.
+- Spring Boot
+- Java
+- H2-tietokantaa hyödynnetään alussa testidatan luomiseen
+- Thymeleaf datan tallentamisen testaamiseen
 
-### Kaaviot
+## Tekijät
 
+- Atte Mäkinen
+- Valtteri Raatikainen 
+- Niko Tikkanen
+- Jimi Podduikin 
+- Laura Waenerberg
+  
+## Kaaviot
+
+### Luokkakaavio
 ![Alt Text](luokkakaavio.png)
 
 
-Tekijät: Atte Mäkinen, Valtteri Raatikainen, Niko Tikkanen, Jimi Podduikin ja Laura Waenerberg.
 
+
+## Trello
 Linkki Trelloon: https://trello.com/invite/b/c7l1eFMW/ATTI6890ecd76bfd40c4ca2e6502b12c261d1F6CD6F1/oma-trello-tauluni# work-calculator-front
