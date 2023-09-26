@@ -1,4 +1,4 @@
-#### Tuntilaskuri
+# Tuntilaskuri
 
 Tässä projektissa on tarkoituksena luoda sovellus, jolla pystyy laskemaan tehtyjä työtunteja, laskemaan palkkaa sekä tarkastelemaan syötettyjä tietoja niin päivä-, viikko- kuin kuukausitasolla.
 
