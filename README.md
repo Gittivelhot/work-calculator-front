@@ -27,6 +27,14 @@ Back-end:
 - Jimi Podduikin 
 - Laura Waenerberg
   
+## Käyttöliittymä
+ 
+Kirjautunut käyttäjä pystyy syöttämään työn alku- ja loppuajan, tuntipalkan ja veroprosentin. Tiedot voidaan tallentaa tietokantaan ja niitä voidaan tarkastella päivä, viikko ja kuukausi tasolla. 
+Näkymien välillä voidaan liikkua navigaatiovalikon avulla.
+Mikäli käyttäjä ei ole rekisteröitynyt voi hän laskea palkkansa tuntipalkan ja tuntimäärän avulla. Kirjautumaton käyttäjä ei voi tallentaa syöttämiään tietoja, vaan ne häviävät istunnon jälkeen.
+
+Virhe tilanteissa tulee alert viesti. Tämä tapahtuu esimerkiksi tilanteessa jossa käyttäjä syöttää negatiivisen tuntipalkan tai kellonajan.
+  
 ## Kaaviot
 
 ### Luokkakaavio
