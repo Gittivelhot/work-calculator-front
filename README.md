@@ -6,10 +6,10 @@ Tärkeinä ominaisuuksina ovat: työajan, tuntipalkan ja veroprosentin syöttäm
 
 ### Toteutusteknologiat
 Front-end:
--React 
+- React 
 
 Back-end:
--Spring Boot.
+- Spring Boot.
 
 ### Kaaviot
 
