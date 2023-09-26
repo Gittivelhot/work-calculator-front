@@ -5,7 +5,11 @@ Tässä projektissa on tarkoituksena luoda sovellus, jolla pystyy laskemaan teht
 Tärkeinä ominaisuuksina ovat: työajan, tuntipalkan ja veroprosentin syöttäminen. Kirjautuneena käyttäjänä voi tarkastella omia syötettyjä tietoja.
 
 ### Toteutusteknologiat
-- Front-end toteutetaan käyttäen Reactia, ja back-end puoli taas toteutetaan käyttäen Java Spring Bootia.
+Front-end:
+-React 
+
+Back-end:
+-Spring Boot.
 
 ### Kaaviot
 
