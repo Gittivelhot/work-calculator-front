@@ -41,7 +41,7 @@ function Calculator() {
             setSumInMinutes(sumInMin);
             setTaxFreeEarnings(earnings.toFixed(2)); // Näytä ansaitut tulot
             setTotalEarnings(verotonsumma.toFixed(2)); // Lasketaan lopullinen tienesti verojen jälkeen. 
-              if(taxPercent != 0.0){
+              if(taxPercent != 0.0 && hourlyRate != 0.0){
                 setIsTaxPercentage(true);
               }
               else{
