@@ -2,7 +2,8 @@ import Calculator from './Calculator.jsx';
 import ButtonAppBar from './components/ButtonAppBar.jsx';
 
 function App() {
- 
+
+  
   return (
     <>
       <ButtonAppBar />
@@ -10,5 +11,6 @@ function App() {
     </>
   );  
 }
+fetch("/api/testi")
 
 export default App;

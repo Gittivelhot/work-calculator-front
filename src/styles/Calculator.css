@@ -20,7 +20,7 @@ body, html {
 }
 
 .calculator-container {
-  background-color: #44403c;
+  
   display: inline-block;
   justify-content: center;
   flex-direction: column;

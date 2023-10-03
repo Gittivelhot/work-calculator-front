@@ -74,7 +74,7 @@ function Calculator() {
   return (
     <div className='app-container'>
       <Box className='calculator-container' sx={{boxShadow: 6,  borderRadius: 1 }}>
-        <Typography style={{ fontSize: '35px', color: '#f5f5f4' }}>Laske työtunnit</Typography>
+        <Typography style={{ fontSize: '35px' }}>Laske työtunnit</Typography>
           <LocalizationProvider dateAdapter={AdapterDayjs}>
             <div className="child-element">
               <TimePicker
