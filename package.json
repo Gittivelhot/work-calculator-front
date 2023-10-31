@@ -19,7 +19,11 @@
     "dayjs": "^1.11.9",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+<<<<<<< HEAD
     "react-router-dom": "^6.17.0",
+=======
+    "react-router-dom": "^6.16.0",
+>>>>>>> 451b1f65f3502b4b3c53044cbd4f47cde6173f92
     "styled-components": "^5.3.11"
   },
   "devDependencies": {

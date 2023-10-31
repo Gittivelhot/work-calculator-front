@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import './styles/Calculator.css';
+import '../styles/Calculator.css';
 import { Box, InputAdornment, Stack, TextField, Typography } from '@mui/material';
 import Button from '@mui/material/Button';
 import 'dayjs/locale/fi';
