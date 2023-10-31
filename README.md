@@ -1,5 +1,8 @@
 # Tuntilaskuri
 
+## Rest Api dokumentaatio
+https://work-calculator-back-fe87ca711a8e.herokuapp.com/swagger-ui/index.html
+
 ## Projektin alustava kuvaus
 
 Projektin tarkoituksena on luoda sovellus, jolla pystyy laskemaan tehtyjä työtunteja, laskemaan palkkaa sekä tarkastelemaan syötettyjä tietoja niin päivä-, viikko- kuin kuukausitasolla.
