@@ -10,20 +10,7 @@ import MenuItem from '@mui/material/MenuItem';
 import React, { useState } from 'react';
 
 
-<<<<<<< HEAD
-export default function ButtonAppBar() {
-  const [anchorEl, setAnchorEl] = useState(null);
-
-  const handleMenuClick = (event) => {
-    setAnchorEl(event.currentTarget);
-  };
-
-  const handleMenuClose = () => {
-    setAnchorEl(null);
-  };
-=======
 export default function ButtonAppBar({user, setUser}) {
->>>>>>> 451b1f65f3502b4b3c53044cbd4f47cde6173f92
 
   return (
     <Box sx={{ flexGrow: 1 }}>
@@ -40,24 +27,6 @@ export default function ButtonAppBar({user, setUser}) {
           >
             <MenuIcon />
           </IconButton>
-<<<<<<< HEAD
-
-          <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-            Työtunti laskuri
-          </Typography>
-
-          <Button color="success" variant="contained">Kirjaudu sisään</Button>
-
-          <Menu
-            anchorEl={anchorEl}
-            open={Boolean(anchorEl)}
-            onClose={handleMenuClose}
-          >
-            <MenuItem onClick={handleMenuClose}>Kuukausinäkymä</MenuItem>
-            <MenuItem onClick={handleMenuClose}>Jotain</MenuItem>
-            <MenuItem onClick={handleMenuClose}>Jotain</MenuItem>
-          </Menu>
-=======
           )}
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
             Työtunti laskuri
@@ -68,7 +37,6 @@ export default function ButtonAppBar({user, setUser}) {
           {user && (
             <Button color="error" variant='contained' onClick={() => setUser(null)} href="http://localhost:8080/logout">Kirjaudu ulos</Button>
           )}
->>>>>>> 451b1f65f3502b4b3c53044cbd4f47cde6173f92
         </Toolbar>
       </AppBar>
     </Box>

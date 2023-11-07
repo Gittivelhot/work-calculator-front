@@ -10,7 +10,7 @@ function App() {
   const [user, setUser] = useState(null);
 
   useEffect(() => {
-    fetch("/api/user")
+    fetch("https://work-calculator-back-fe87ca711a8e.herokuapp.com/api/findusers")
     .then(response => response.json())
     .then(data =>  {
       console.log(data)
