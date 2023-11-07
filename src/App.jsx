@@ -1,16 +1,23 @@
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { BrowserRouter, Route, Routes, Navigate } from 'react-router-dom';
 import ButtonAppBar from './components/ButtonAppBar.jsx';
 import Calculator from './pages/Calculator.jsx';
 import ProtectedRoutes from './components/ProtectedRoutes.jsx';
 import LoggedCalculator from './pages/LoggedCalculator.jsx';
 import { useEffect, useState } from 'react';
+import Calendar from './pages/Calendar.jsx';
+import Authentication from './pages/Authentication.jsx';
 
 function App() {
   
   const [user, setUser] = useState(null);
 
   useEffect(() => {
-    fetch("https://work-calculator-back-fe87ca711a8e.herokuapp.com/api/findusers")
+    fetch("/api/login", {
+        credentials: 'include',
+        headers: {
+            'X-Requested-With': 'XMLHttpRequest'
+        },
+    })
     .then(response => response.json())
     .then(data =>  {
       console.log(data)
@@ -23,17 +30,24 @@ function App() {
 
 
   return (
-    <>
-      <ButtonAppBar user={user} setUser={setUser}/>
+      <>
         <BrowserRouter>
+          <ButtonAppBar user={user} setUser={setUser}/>
           <Routes>
-            <Route path="/" element={ <Calculator /> }/>
-            <Route element={<ProtectedRoutes user={user}/>}>
+            <Route path="/" element={<Calculator />} />
+            {user ? (
+              <Route path="/login" element={<Navigate to="/" />} />
+            ) : (
+              <Route path="/login" element={<Authentication setUser={setUser} />} />
+            )}
+            <Route element={<ProtectedRoutes user={user} />}>
               <Route path="/laskin" element={<LoggedCalculator />} />
+              <Route path="/calendar" element={<Calendar />} />
             </Route>
+            <Route path="*" element={<Navigate to="/" />} />
           </Routes>
         </BrowserRouter>
-    </>
+      </>
   );  
 }
 

@@ -1,3 +1,4 @@
+import React, { useState } from 'react';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
@@ -5,12 +6,33 @@ import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
-import Menu from '@mui/material/Menu';
-import MenuItem from '@mui/material/MenuItem';
-import React, { useState } from 'react';
-
+import { Link } from 'react-router-dom';
+import MenuDrawer from './Drawer';
 
 export default function ButtonAppBar({user, setUser}) {
+
+  const [open, setOpen] = useState(false);
+
+  function logout() {
+    fetch('/api/logout', {
+        method: 'POST',
+        credentials: 'include',
+        headers: {
+            'X-Requested-With': 'XMLHttpRequest'
+        },
+    })
+    .then(response => {
+      if(!response.ok){
+        throw new Error("Response was not okay")
+      }
+      return response.text();
+    })
+    .then(data =>  {
+        console.log(data)
+        setUser(null)
+    })
+    .catch((err) => console.log(err))
+  }
 
   return (
     <Box sx={{ flexGrow: 1 }}>
@@ -23,7 +45,7 @@ export default function ButtonAppBar({user, setUser}) {
             color="inherit"
             aria-label="menu"
             sx={{ mr: 2 }}
-            onClick={handleMenuClick}
+            onClick={() => setOpen(true)}
           >
             <MenuIcon />
           </IconButton>
@@ -32,13 +54,15 @@ export default function ButtonAppBar({user, setUser}) {
             Työtunti laskuri
           </Typography>
           {!user && (
-            <Button color="success" variant='contained' href="http://localhost:8080/login">Kirjaudu sisään</Button>
+            <Button color="success" variant='contained' component={Link} to="/login">Kirjaudu sisään</Button>
           )}
           {user && (
-            <Button color="error" variant='contained' onClick={() => setUser(null)} href="http://localhost:8080/logout">Kirjaudu ulos</Button>
+            <Button color="error" variant='contained' onClick={() => logout()}>Kirjaudu ulos</Button>
           )}
+
         </Toolbar>
       </AppBar>
+      <MenuDrawer setOpen={setOpen} open={open} />
     </Box>
   );
 }
