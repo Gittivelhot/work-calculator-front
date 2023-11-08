@@ -1,0 +1,10 @@
+#tabcontainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: -5rem;
+}
+
+#authcontainer {
+    margin-top: 4rem;
+}
