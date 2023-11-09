@@ -18,7 +18,7 @@ export default function MenuDrawer({open, setOpen}) {
         {name: "Koti", address: "/" , icon: <HomeIcon /> },
         {name: "Kalenteri", address: "/calendar" , icon: <CalendarMonthIcon /> },
         {name: "Placeholder #1", address: "/#" ,icon: <AddCircleOutlineIcon /> },
-        {name: "Placeholder #2", address: "/#" , icon: <AddCircleOutlineIcon /> },
+        
     ] 
 
     const toggleDrawer = (open) => (event) => {
