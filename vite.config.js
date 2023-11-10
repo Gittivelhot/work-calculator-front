@@ -7,7 +7,7 @@ export default defineConfig({
   server: {
     proxy: {
       "/api": {
-        target: "https://work-calculator-back-fe87ca711a8e.herokuapp.com",
+        target: "http://localhost:8080/api",
         changeOrigin: true,
         rewrite: (path) => path.replace(/^\/api/, ""),
       },

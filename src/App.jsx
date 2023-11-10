@@ -6,6 +6,7 @@ import LoggedCalculator from './pages/LoggedCalculator.jsx';
 import { useEffect, useState } from 'react';
 import Calendar from './pages/Calendar.jsx';
 import Authentication from './pages/Authentication.jsx';
+import Testi from './pages/test.jsx';
 
 
 
@@ -45,6 +46,7 @@ function App() {
             <Route element={<ProtectedRoutes user={user} />}>
               <Route path="/laskin" element={<LoggedCalculator />} />
               <Route path="/calendar" element={<Calendar />} />
+              <Route path="/testi" element={<Testi />} />
               
             </Route>
             <Route path="*" element={<Navigate to="/" />} />
