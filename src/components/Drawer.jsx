@@ -17,7 +17,7 @@ export default function MenuDrawer({open, setOpen}) {
     const links = [
         {name: "Koti", address: "/" , icon: <HomeIcon /> },
         {name: "Kalenteri", address: "/calendar" , icon: <CalendarMonthIcon /> },
-        {name: "testi", address: "/testi" ,icon: <AddCircleOutlineIcon /> },
+        {name: "Työtunnit", address: "/hours" ,icon: <AddCircleOutlineIcon /> },
         
     ] 
 

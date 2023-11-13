@@ -2,23 +2,29 @@ import React, { useEffect, useState } from 'react';
 import FullCalendar from '@fullcalendar/react';
 import dayGridPlugin from '@fullcalendar/daygrid';
 import timeGridPlugin from '@fullcalendar/timegrid';
-import axios from 'axios';
+
 
 export default function Calendar() {
   const [workingHours, setWorkingHours] = useState([]);
 
   useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await axios.get('https://work-calculator-back-fe87ca711a8e.herokuapp.com/api/workinghours');
-        setWorkingHours(response.data);
-      } catch (error) {
-        console.error('Virhe haettaessa työtunteja:', error);
-      }
-    };
-
-    fetchData();
-  }, []);
+  fetch ('/api/workinghours',{
+    method: 'GET',
+    mode: 'cors',
+    headers:{
+      'X-Requested-With': 'XMLHttpRequest',
+      'Content-Type': 'application/json'
+    },
+  })
+  .then (response => response.json())
+  .then(data =>{
+    console.log(data)
+    if (data) {
+      setWorkingHours(data)
+    }
+  })
+  .catch((err) => console.log(err))
+  },[]);
 
   const events = workingHours.map(item => ({
     title: `Work - ${item.id}`,
@@ -74,3 +80,4 @@ export default function Calendar() {
     </div>
   );
 }
+  
