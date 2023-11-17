@@ -4,7 +4,7 @@ import Tab from '@mui/material/Tab';
 import Box from '@mui/material/Box';
 import Login from '../components/Login';
 import Signup from '../components/Signup';
-import authentication from '../styles/authentication.css';
+import '../styles/authentication.css';
 
 
 export default function Authentication({ setUser }) {

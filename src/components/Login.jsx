@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Button, TextField } from '@mui/material';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
+import '../styles/login.css';
 
 export default function Login({ setUser }) {
     // State variables to store the username and password
