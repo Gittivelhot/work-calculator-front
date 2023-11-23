@@ -40,7 +40,7 @@ function Hourslist (){
   const handleDelete = (id) => {
     if (window.confirm('Confirm delete')) {
       fetch(`/api/delete/${id}`, {
-        method: 'DELETE'
+        method: 'GET'
       })
       .then(response => {
         if (response.ok) {
