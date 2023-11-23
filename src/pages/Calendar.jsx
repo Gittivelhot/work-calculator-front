@@ -8,23 +8,22 @@ export default function Calendar() {
   const [workingHours, setWorkingHours] = useState([]);
 
   useEffect(() => {
-  fetch ('/api/workinghours',{
-    method: 'GET',
-    mode: 'cors',
-    headers:{
-      'X-Requested-With': 'XMLHttpRequest',
-      'Content-Type': 'application/json'
-    },
-  })
-  .then (response => response.json())
-  .then(data =>{
-    console.log(data)
-    if (data) {
-      setWorkingHours(data)
-    }
-  })
-  .catch((err) => console.log(err))
-  },[]);
+    fetch('/api/userdetails', {
+      method: 'GET',
+      mode: 'cors',
+      headers: {
+        'X-Requested-With': 'XMLHttpRequest',
+        'Content-Type': 'application/json'
+      },
+    })
+      .then(response => response.json())
+      .then(data => {
+        if (data.workingHours && Array.isArray(data.workingHours)) {
+          setWorkingHours(data.workingHours);
+        }
+      })
+      .catch((err) => console.log(err))
+  }, []);
 
   const events = workingHours.map(item => ({
     title: `Work - ${item.id}`,
