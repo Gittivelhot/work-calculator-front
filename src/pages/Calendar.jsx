@@ -10,6 +10,7 @@ import Button from "@mui/material/Button";
 import CloseIcon from "@mui/icons-material/Close";
 import Snackbar from "@mui/material/Snackbar";
 import DeleteIcon from '@mui/icons-material/Delete';
+import "../styles/calendar.css";
 
 export default function Calendar() {
   // State declarations
@@ -97,14 +98,7 @@ export default function Calendar() {
   }));
 
   return (
-    <div
-      style={{
-        width: "94%",
-        marginTop: "5%",
-        paddingLeft: "5%",
-        paddingRight: "5%",
-      }}
-    >
+    <div className="calendar">
       <FullCalendar
         events={events}
         eventClick={handleEventClick}
@@ -192,7 +186,7 @@ export default function Calendar() {
             </div>
           );
         }}
-        aspectRatio={2.0}
+        aspectRatio={2.5}
         plugins={[dayGridPlugin, timeGridPlugin]}
         initialView="timeGridWeek"
         headerToolbar={{
