@@ -13,8 +13,34 @@ export default function Signup({ setUser }) {
     const [passwordCheck, setPasswordCheck] = useState('');
     const [success, setSuccess] = useState(false);
     const [error, setError] = useState(false);
+    const [passwordError, setPasswordError] = useState(false);
+    const [usernameError, setUsernameError] = useState(false);
+    const [difpassword, setDifpassword] = useState(false);
 
     const signup = () => {
+        // Frontend password validation
+        if (password.length < 8 || !/(?=.*[A-Z])(?=.*[a-z])(?=.*\d)/.test(password)) {
+            setError(false);
+            setSuccess(false);
+            setPasswordError(true);
+            return;
+        }
+        if (username.length < 4) {
+            setError(false);
+            setSuccess(false);
+            setPasswordError(false);
+            setUsernameError(true);
+            return;
+        }
+        if (password !== passwordCheck) {
+            setError(false);
+            setSuccess(false);
+            setPasswordError(false);
+            setUsernameError(false);
+            setDifpassword(true);
+            return;
+        }
+        
         const data = {
             username: username,
             password: password,
@@ -28,20 +54,25 @@ export default function Signup({ setUser }) {
                 'X-Requested-With': 'XMLHttpRequest'
             },
         })
-            .then(response => {
-                if (response.ok) {
-                    setError(false);
-                    setSuccess(true);
-                    setUsername('')
-                    setPassword('')
-                    setPasswordCheck('')
-                }
-                else {
-                    setSuccess(false);
-                    setError(true);
-                }
-            })
-            .catch((err) => console.log(err))
+        .then(response => {
+            if (response.ok) {
+                setError(false);
+                setSuccess(true);
+                setPasswordError(false);
+                setUsernameError(false);
+                setDifpassword(false);
+                setUsername('');
+                setPassword('');
+                setPasswordCheck('');
+            } else {
+                setSuccess(false);
+                setError(true);
+                setPasswordError(false);
+                setUsernameError(false);
+                setDifpassword(false);
+            }
+        })
+        .catch((err) => console.log(err));
     }
 
     return (
@@ -75,6 +106,26 @@ export default function Signup({ setUser }) {
                         Kirjaudu sisään käyttäjälle — <strong>Tervetuloa!</strong>
                     </Alert>
                 )}
+                {passwordError && (
+                        <Alert severity="error">
+                            <AlertTitle>Salasanan asettaminen epäonnistui!</AlertTitle>
+                            Salasanan on oltava vähintään 8 merkkiä pitkä. Sisältää vähintään yhden ison kirjaimen, yhden pienen kirjaimen ja yhden numeron. — <strong>kokeile uudelleen!</strong>
+                        </Alert>
+                    )}
+                {usernameError && (
+                        <Alert severity="error">
+                            <AlertTitle>Käyttäjän luonti epäonnistui!</AlertTitle>
+                            Käyttäjänimen on oltava vähintään 4 merkkiä pitkä — <strong>kokeile uudelleen!</strong>
+                        </Alert>
+                
+                    )}
+                {difpassword && (
+                        <Alert severity="error">
+                            <AlertTitle>Käyttäjän luonti epäonnistui!</AlertTitle>
+                            Salasanat eivät täsmää — <strong>kokeile uudelleen!</strong>
+                        </Alert>
+                
+                    )}
                 </div>
             </div>
         </>
