@@ -38,7 +38,11 @@ function App() {
         <BrowserRouter>
           <ButtonAppBar user={user} setUser={setUser}/>
           <Routes>
-            <Route path="/" element={<Calculator />} />
+            {user ? (
+              <Route path="/" element={<LoggedCalculator />} />
+              ) : (
+              <Route path="/" element={<Calculator />} />
+            )}
             {user ? (
               <Route path="/login" element={<Navigate to="/" />} />
             ) : (

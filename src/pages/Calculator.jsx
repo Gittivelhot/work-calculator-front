@@ -9,7 +9,6 @@ import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import dayjs from 'dayjs';
 
 function Calculator() {
-
     const [startTime, setStartTime] = useState(dayjs().set('hour', 9).set('minute', 0));
     const [endTime, setEndTime] = useState(dayjs().set('hour', 17).set('minute', 0));
     const [sumInMinutes, setSumInMinutes] = useState(0);
