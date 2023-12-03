@@ -18,7 +18,6 @@ import { DateTimePicker } from "@mui/x-date-pickers";
 
 
 function Calculator() {
-  dayjs.tz.setDefault('Europe/Helsinki');
   const [startTime, setStartTime] = useState(
     dayjs().set("hour", 9).set("minute", 0)
   );
