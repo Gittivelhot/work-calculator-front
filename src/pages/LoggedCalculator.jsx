@@ -120,6 +120,7 @@ function Calculator() {
                 hours: renderTimeViewClock,
                 minutes: renderTimeViewClock,
               }}
+              slotProps={{ textField: { fullWidth: true } }}
             />
           </div>
           <div className="child-element">
@@ -130,6 +131,7 @@ function Calculator() {
                 hours: renderTimeViewClock,
                 minutes: renderTimeViewClock,
               }}
+              slotProps={{ textField: { fullWidth: true } }}
             />
           </div>
 
