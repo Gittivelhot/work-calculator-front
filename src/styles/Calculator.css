@@ -32,6 +32,20 @@ body, html {
   width: 17.5%;
 }
 
-.child-element {
+#buttonstack{
+  justify-content: space-evenly;
   margin: 20px 0;
+}
+
+#addbutton{
+  padding: 10px;
+}
+
+#calculatebutton{
+  padding: 10px;
+}
+
+#emptybutton{
+  padding: 10px;
+  width: fit-content;
 }

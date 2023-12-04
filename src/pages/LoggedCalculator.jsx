@@ -15,7 +15,8 @@ import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import dayjs from 'dayjs';
 import { renderTimeViewClock } from "@mui/x-date-pickers/timeViewRenderers";
 import { DateTimePicker } from "@mui/x-date-pickers";
-
+import Alert from "@mui/material/Alert";
+import AlertTitle from "@mui/material/AlertTitle";
 
 function Calculator() {
   const [startTime, setStartTime] = useState(
@@ -34,12 +35,14 @@ function Calculator() {
   const [taxPercent, setTaxPercent] = useState(0.0);
   const [totalEarnings, setTotalEarnings] = useState(0.0);
   const [isTaxPercentage, setIsTaxPercentage] = useState(false);
+  const [success, setSuccess] = useState(false);
+  const [error, setError] = useState(false);
 
   const calculateSum = () => {
     const startTimeMs = startTime.valueOf();
     const endTimeMs = endTime.valueOf();
 
-    
+
 
     if (!isNaN(startTimeMs) && !isNaN(endTimeMs)) {
       if (startTimeMs < endTimeMs) {
@@ -95,14 +98,17 @@ function Calculator() {
       },
       body: JSON.stringify(dataToSend),
     })
-      .then((response) => response.text())
-      .then((data) => {
-        console.log("Success:", data);
-      })
-      .catch((error) => {
-        console.error("Error:", error);
-      });
-  };
+      .then(response => {
+        if (response.ok) {
+          setError(false);
+          setSuccess(true);
+        } else {
+          setSuccess(false);
+          setError(true);
+        }
+      }
+      )
+  }
 
   return (
     <div className="app-container">
@@ -165,18 +171,21 @@ function Calculator() {
             direction={{ xs: "column", sm: "row" }}
             spacing={{ xs: 1, sm: 2, md: 4 }}
             justifyContent={"center"}
+            id="buttonstack"
           >
             <Button
               variant="contained"
               color="warning"
               onClick={clearTextFields}
-            >
+              id="emptybutton">
               Tyhjennä
             </Button>
-            <Button variant="contained" onClick={calculateSum}>
+            <Button variant="contained" onClick={calculateSum} id="calculatebutton">
               Laske
             </Button>
-            <Button variant="contained" onClick={handleAddHours}>
+          </Stack>
+          <Stack>
+            <Button variant="contained" onClick={handleAddHours} id="addbutton">
               Lisää kalenteriin
             </Button>
           </Stack>
@@ -208,7 +217,20 @@ function Calculator() {
             )}
           </>
         )}
-
+        <div id="errorcontainer">
+          {error && (
+            <Alert severity="error">
+              <AlertTitle>Tuntien lisääminen kalenteriin epäonnistui!</AlertTitle>
+              Tarkista että tiedot ovat oikein ja <strong>kokeile uudelleen!</strong>
+            </Alert>
+          )}
+          {success && (
+            <Alert severity="success">
+              <AlertTitle>Tuntien lisääminen kalenteriin onnistui!</AlertTitle>
+              Pääset tarkastelemaan tietojasi <strong>kalenterisivulta</strong>
+            </Alert>
+          )}
+        </div>
         <div className="child-element">
           <Snackbar
             open={open}
@@ -221,5 +243,4 @@ function Calculator() {
     </div>
   );
 }
-
 export default Calculator;
