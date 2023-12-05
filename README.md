@@ -19,7 +19,7 @@ Front-end:
 Back-end:
 - Spring Boot
 - Java
-- H2-tietokantaa hyödynnetään alussa testidatan luomiseen
+- H2-tietokanta
 - Thymeleaf datan tallentamisen testaamiseen
 
 ## Tekijät
